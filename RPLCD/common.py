@@ -97,13 +97,15 @@ class CursorMode(object):
 
 def msleep(milliseconds):
     """Sleep the specified amount of milliseconds."""
-    time.sleep(milliseconds / 1000.0)
-
+    end = time.time() + (milliseconds/1000.0)
+    while time.time() < end:
+            pass
 
 def usleep(microseconds):
     """Sleep the specified amount of microseconds."""
-    time.sleep(microseconds / 1000000.0)
-
+    end = time.time() + (microseconds/1000000.0)
+    while time.time() < end:
+        pass
 
 def sliding_window(seq, lookahead):
     """
